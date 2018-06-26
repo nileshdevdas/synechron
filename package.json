@@ -1,0 +1,12 @@
+{
+  "name": "example2",
+  "version": "1.0.0",
+  "description": "user management api ",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js ",
+    "webserv" : "node webserv.js"
+  },
+  "author": "nilesh",
+  "license": "ISC"
+}
