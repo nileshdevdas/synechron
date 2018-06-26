@@ -1,6 +1,8 @@
 var http = require("http");
+/*** Event ***/
 var events = require("events");
 var EventEmitter = new events.EventEmitter();
+/*** Event ***/
 
 var Server = http.createServer(function(request,response){
   switch(request.url){
@@ -32,6 +34,6 @@ function handleError(request, response){
 }
 
 EventEmitter.on("loginEvent", function(user){
-  console.log("Event Received........");
+  console.log("Auditing User ");
   console.log(user);
 })
