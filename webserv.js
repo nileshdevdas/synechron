@@ -1,7 +1,7 @@
 var http = require("http");
 var events = require("events");
+var EventEmitter = new events.EventEmitter();
 
-var EventEmmiter = events();
 var Server = http.createServer(function(request,response){
   switch(request.url){
       case "/login":
@@ -21,8 +21,8 @@ function handleLogin(request, response){
    user.username = "nilesh";
    user.password = "password"
    response.setHeader("content-type", "application/json");
+   EventEmitter.emit("loginEvent", user);
    response.end(JSON.stringify(user));
-
 }
 function handleLogout(request, response){
   response.end("You Finished Logout");
@@ -30,3 +30,8 @@ function handleLogout(request, response){
 function handleError(request, response){
   response.end("OOPS Wrong Url ");
 }
+
+EventEmitter.on("loginEvent", function(user){
+  console.log("Event Received........");
+  console.log(user);
+})
